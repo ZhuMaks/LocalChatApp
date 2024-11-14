@@ -1,0 +1,117 @@
+﻿<Window x:Class="ChatAppCourse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatAppCourse"
+        xmlns:viewmodel="clr-namespace:ChatClient.MVVF.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        MinWidth="500"
+        MinHeight="300"
+        FontFamily="Roboto"
+        FontSize="13"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource ForegroundBrush}">
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+
+    <DockPanel Background="{DynamicResource BackgroundBrush}">
+
+        <ToggleButton Width="60" Height="30" Margin="10" DockPanel.Dock="Top" 
+                      Checked="OnToggleButtonChecked"
+                      Unchecked="OnToggleButtonChecked">
+            <ToggleButton.Template>
+                <ControlTemplate>
+                    <Border x:Name="SwitchBorder" Width="58" Height="30" CornerRadius="15" Background="{DynamicResource BackgroundBrush}">
+                        <Border x:Name="SwitchShape" Width="22" Height="22" Margin="4,0,4,0" Background="White"
+                                HorizontalAlignment="Left" CornerRadius="15">
+                            <Border.Effect>
+                                <DropShadowEffect Opacity=".2"/>
+                            </Border.Effect>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                            <Setter TargetName="SwitchShape" Property="HorizontalAlignment" Value="Right"/>
+                            <Setter TargetName="SwitchBorder" Property="Background" Value="#4cd964"/>
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="False">
+                            <Setter TargetName="SwitchBorder" Property="Background" Value="lightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </ToggleButton.Template>
+        </ToggleButton>
+
+        <Grid Background="{DynamicResource BackgroundBrush}" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <DockPanel Background="{DynamicResource BackgroundBrush}">
+                <TextBox Height="25"
+                         DockPanel.Dock="Top"
+                         HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                         Background="{DynamicResource BackgroundBrush}"
+                         Foreground="{DynamicResource ForegroundBrush}"/>
+                <Button Height="25"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        DockPanel.Dock="Top" 
+                        Content="Connect" 
+                        Command="{Binding ConnectToServerCommand}"
+                        Style="{StaticResource ConnectButtonStyle}"/>
+                <ListView ItemsSource="{Binding Users}"
+                          Background="{DynamicResource BackgroundBrush}"
+                          Foreground="{DynamicResource ForegroundBrush}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Username}"
+                                       Background="{DynamicResource BackgroundBrush}"
+                                       Foreground="{DynamicResource ForegroundBrush}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </DockPanel>
+
+            <StackPanel Grid.Column="1" Background="{DynamicResource BackgroundBrush}">
+                <ScrollViewer x:Name="MessagesScrollViewer" VerticalScrollBarVisibility="Auto">
+                    <ListView Name="MessagesListView"
+                  Height="380"
+                  ItemsSource="{Binding Messages}"
+                  Background="{DynamicResource BackgroundBrush}"
+                  Foreground="{DynamicResource ForegroundBrush}"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" Background="{DynamicResource BackgroundBrush}">
+                    <TextBox x:Name="MessageTextBox"
+                 Height="55"
+                 Width="545"
+                 HorizontalContentAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
+                 KeyDown="MessageTextBox_KeyDown"
+                 Background="{DynamicResource BackgroundBrush}"
+                 Foreground="{DynamicResource ForegroundBrush}"
+                 IsEnabled="{Binding IsConnected}"/>
+                    <Button Width="55"
+                FontWeight="Bold"
+                FontSize="14"
+                Content="Send"
+                Command="{Binding SendMessageCommand}"
+                Style="{StaticResource ConnectButtonStyle}"
+                IsEnabled="{Binding IsConnected}"
+                Click="SendButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,5 @@
+D:\C# edu\serverapp\ChatServer.exe
+D:\C# edu\serverapp\ChatServer.dll
+D:\C# edu\serverapp\ChatServer.deps.json
+D:\C# edu\serverapp\ChatServer.runtimeconfig.json
+D:\C# edu\serverapp\ChatServer.pdb

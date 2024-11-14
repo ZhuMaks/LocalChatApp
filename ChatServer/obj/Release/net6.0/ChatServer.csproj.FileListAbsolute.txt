@@ -1,0 +1,15 @@
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\bin\Release\net6.0\ChatServer.exe
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\bin\Release\net6.0\ChatServer.deps.json
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\bin\Release\net6.0\ChatServer.runtimeconfig.json
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\bin\Release\net6.0\ChatServer.dll
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\bin\Release\net6.0\ChatServer.pdb
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.csproj.AssemblyReference.cache
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.AssemblyInfoInputs.cache
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.AssemblyInfo.cs
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.csproj.CoreCompileInputs.cache
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.dll
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\refint\ChatServer.dll
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.pdb
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ChatServer.genruntimeconfig.cache
+D:\C# edu\CourseProject\ChatAppCourse\ChatServer\obj\Release\net6.0\ref\ChatServer.dll
